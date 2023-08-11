@@ -26,7 +26,7 @@ sudo apt install libssl-dev libudev-dev pkg-config
 
 * channel messages summerization using chat GPT
 
-* configured with 10 shards by default also we're using redis to manage the shared state data between clusters.
+* configured with 10 shards by default also we're using redis to manage the shared state like rate limits data between clusters.
 
 ## 🚀 Deploy
 

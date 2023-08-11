@@ -50,15 +50,12 @@ use std::collections::{HashSet, HashMap};
 use std::{net::SocketAddr, sync::Arc, env};
 use std::time::Duration;
 use dotenv::dotenv;
-use routerify::Router;
-use routerify::Middleware;
 use uuid::Uuid;
 use log::{info, error};
 use once_cell::sync::Lazy;
 use futures::executor::block_on;
 use tokio::sync::oneshot;
 use tokio::sync::Mutex; // async Mutex will be used inside async methods since the trait Send is not implement for std::sync::Mutex
-use hyper::{Client, Uri, Body};
 use chrono::{TimeZone, Timelike, Datelike, Utc}; // this trait is rquired to be imported here to call the with_ymd_and_hms() method on a Utc object since every Utc object must be able to call the with_ymd_and_hms() method 
 use sysinfo::{NetworkExt, NetworksExt, ProcessExt, System, SystemExt, CpuExt, DiskExt}; // methods of trait DiskExt can be used on each Disk instance to get information of the disk because Disk struct has private methods and we can access them by call the trait DiskExt methods which has been implemented for the Disk struct  
 use openai::{ // openai crate is using the reqwest lib under the hood
